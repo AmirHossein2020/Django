@@ -1,0 +1,40 @@
+
+body{
+    background-color: rgb(17, 255, 255);
+}
+
+h1{
+    color: brown;
+    
+}
+
+div{
+    width: 102%;
+    height: 60px;
+    margin-top: -20px;
+    margin-left: -20px;
+    background-color: rgb(137, 133, 142);
+    
+    
+}
+
+.staly li{
+    display: inline-table;
+    padding: 40px;
+    padding-top: 10px;
+    font-size: 30px;
+    
+
+}
+.staly a{
+    color: rgb(12, 19, 20);
+    text-decoration: none;
+    font-size: 30px;
+
+}
+
+#ooot{
+    color: rgb(12, 19, 20);
+    text-decoration: none;
+    font-size: 30px;
+}

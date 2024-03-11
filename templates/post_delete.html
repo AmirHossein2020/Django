@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- ======= Blog Section ======= -->
+<section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>Blog</h2>
+
+        <ol>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li>Updete Post</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Blog Section -->
+  <section id="blog" class="blog">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 entries">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>Are you sure for<strong> delete</strong> post?</p>
+            <br>
+            <button type="submit" class="btn btn-success">Yes</button>
+            <button type="submit" class="btn btn-success"><a href="{% url 'post_detail' post.pk %}">No</a></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}

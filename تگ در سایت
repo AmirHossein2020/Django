@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کادر تگ با علامت +</title>
+    <style>
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .tag {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 10px;
+            margin: 5px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        .tag-add {
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tag-container">
+        <div class="tag">
+            <span>HTML</span>
+            <span class="tag-remove">×</span>
+        </div>
+
+        <div class="tag">
+            <span>CSS</span>
+            <span class="tag-remove">×</span>
+        </div>
+
+        <div class="tag-add">+</div>
+    </div>
+
+    <script>
+        const tagContainer = document.querySelector('.tag-container');
+        const tagAdd = document.querySelector('.tag-add');
+
+        tagAdd.addEventListener('click', () => {
+            const newTag = document.createElement('div');
+            newTag.classList.add('tag');
+
+            const tagInput = document.createElement('input');
+            tagInput.type = 'text';
+            tagInput.placeholder = 'نام تگ را وارد کنید';
+
+            const tagRemove = document.createElement('span');
+            tagRemove.classList.add('tag-remove');
+
+            newTag.appendChild(tagInput);
+            newTag.appendChild(tagRemove);
+
+            tagContainer.appendChild(newTag);
+
+            tagInput.focus();
+        });
+
+        document.addEventListener('click', (event) => {
+            const tagRemove = event.target;
+            if (tagRemove.classList.contains('tag-remove')) {
+                const tag = tagRemove.parentElement;
+                tagContainer.removeChild(tag);
+            }
+        });
+    </script>
+</body>
+</html>

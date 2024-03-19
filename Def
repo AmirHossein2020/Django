@@ -1,0 +1,11 @@
+def concertDetailsViews (request, city_id):
+     city = Citys.objects.get(pk=city_id)
+
+     context {
+     "city": city,
+     }
+return render (request, "citys.html",context)
+
+path('citys/<int:city_id>',concertDetailsViews),
+
+href="/web/citys/{{ citys.id }}"

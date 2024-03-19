@@ -1,4 +1,4 @@
-def concertDetailsViews (request, city_id):
+def City_name(request, city_id):
      city = Citys.objects.get(pk=city_id)
 
      context {
@@ -6,6 +6,6 @@ def concertDetailsViews (request, city_id):
      }
 return render (request, "citys.html",context)
 
-path('citys/<int:city_id>',concertDetailsViews),
+path('citys/<int:city_id>', City_name),
 
 href="/web/citys/{{ citys.id }}"

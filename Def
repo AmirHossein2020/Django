@@ -9,3 +9,7 @@ return render (request, "citys.html",context)
 path('citys/<int:city_id>', City_name),
 
 href="/web/citys/{{ citys.id }}"
+هتل اسپیناس پالاس
+هتل گران مجید
+رستوران نایب
+رستوران شمرون

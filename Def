@@ -13,3 +13,62 @@ href="/web/citys/{{ citys.id }}"
 هتل گران مجید
 رستوران نایب
 رستوران شمرون
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ترجمه خودکار</title>
+</head>
+<body>
+    <h1>عنوان</h1>
+    <p>این یک پاراگراف است.</p>
+
+    <ul>
+        <li><a href="#" id="en-to-fa">انگلیسی به فارسی</a></li>
+        <li><a href="#" id="fa-to-en">فارسی به انگلیسی</a></li>
+    </ul>
+
+    <div id="translated-text"></div>
+
+    <script src="translate.js"></script>
+</body>
+</html>
+===========================================
+const googleTranslateApiKey = 'YOUR_API_KEY';
+
+const translateTo = (language, text) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${language}&dt=t&q=${text}&key=${googleTranslateApiKey}`);
+    xhr.onload = () => {
+        const response = JSON.parse(xhr.responseText);
+        const translatedText = response.data.translations[0].translatedText;
+
+        document.getElementById('translated-text').textContent = translatedText;
+    };
+    xhr.send();
+};
+
+const enToFaLink = document.getElementById('en-to-fa');
+enToFaLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const text = document.querySelector('body').textContent;
+    translateTo('fa', text);
+});
+
+const faToEnLink = document.getElementById('fa-to-en');
+faToEnLink.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const text = document.querySelector('body').textContent;
+    translateTo('en', text);
+});
+
+
+
+========================================
+برای ترجمه متن صفحه از انگلیسی به فارسی، می‌توانید از URL زیر استفاده کنید:
+https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fa&dt=t&q=This is a heading. This is a paragraph.
+برای ترجمه متن صفحه از فارسی به انگلیسی، می‌توانید از URL زیر استفاده کنید:
+https://translate.googleapis.com/translate_a/single?client=gtx&sl=fa&tl=en&dt=t&q=این یک عنوان است. این یک پاراگراف است.

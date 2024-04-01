@@ -72,3 +72,80 @@ faToEnLink.addEventListener('click', (event) => {
 https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fa&dt=t&q=This is a heading. This is a paragraph.
 برای ترجمه متن صفحه از فارسی به انگلیسی، می‌توانید از URL زیر استفاده کنید:
 https://translate.googleapis.com/translate_a/single?client=gtx&sl=fa&tl=en&dt=t&q=این یک عنوان است. این یک پاراگراف است.
+
+
+====================================================================================================
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>کادر اضافه کردن گزینه</title>
+  <style>
+    /* استایل کادر */
+    .box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 300px;
+    }
+    
+    /* استایل لیست گزینه ها */
+    .list {
+      list-style: none;
+      padding: 0;
+    }
+    
+    /* استایل هر گزینه */
+    .list-item {
+      border: 1px solid #ddd;
+      padding: 5px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+    
+    /* استایل دکمه اضافه کردن */
+    .add-button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="box">
+    
+    <h2>اضافه کردن گزینه</h2>
+    
+    <ul class="list"></ul>
+    
+    <input type="text" id="new-item" placeholder="گزینه جدید را وارد کنید">
+    
+    <button class="add-button">اضافه کردن</button>
+  </div>
+  
+  <script>
+    // تابع اضافه کردن گزینه جدید
+    function addOption() {
+      // دریافت متن گزینه جدید
+      const newOptionText = document.getElementById("new-item").value;
+      
+      // ایجاد عنصر جدید برای لیست
+      const listItem = document.createElement("li");
+      listItem.classList.add("list-item");
+      listItem.textContent = newOptionText;
+      
+      // اضافه کردن عنصر جدید به لیست
+      document.querySelector(".list").appendChild(listItem);
+      
+      // پاک کردن متن ورودی
+      document.getElementById("new-item").value = "";
+    }
+    
+    // اضافه کردن رویداد کلیک به دکمه اضافه کردن
+    document.querySelector(".add-button").addEventListener("click", addOption);
+  </script>
+</body>
+</html>

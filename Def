@@ -1,4 +1,4 @@
-def City_name(request, city_id):
+همهdef City_name(request, city_id):
      city = Citys.objects.get(pk=city_id)
 
      context {
@@ -149,3 +149,7 @@ https://translate.googleapis.com/translate_a/single?client=gtx&sl=fa&tl=en&dt=t&
   </script>
 </body>
 </html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+<p>{{ moment(resume.created_at).locale('fa').format('YYYY/MM/DD') }}</p>

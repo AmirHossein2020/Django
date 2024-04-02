@@ -79,3 +79,15 @@
     </script>
 </body>
 </html>
+
+
+
+
+<script>
+function toJalali(date) {
+  var moment = require('moment-jalaali');
+  return moment(date).format('YYYY/MM/DD');
+}
+</script>
+
+<div class="text-primary fw-bolder mb-2">{{ toJalali(item.startyear.year) }} - {{ toJalali(item.endyear.year) }}</div>

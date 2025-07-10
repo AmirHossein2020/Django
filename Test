@@ -1,3 +1,82 @@
+.....setting.py.....
+SECRET_KEY = config("SECRET_KEY", default='django-insecure-v!!p07q542o11a=jzhp^c)bq%+=^odvfqbem%22mupm!-npqgr')
+DEBUG = config("DEBUG", cast=bool, default=True)
+ALLOWED HOSTS = config("ALLOWED HOSTS", cast= lambda v: [item.strip() for item in v.split(',')], default="*")
+
+
+BASE DIR DIR / 'templates'
+
+
+DATABASES = {
+
+'default':{
+
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': config("PGDB_NAME", default='postgres'),
+'USER': config("PGDB_USER", default='postgres'),
+'PASSWORD': config("PGDB_PASSWORD", default='postgres'),
+'HOST': config("PGDB_HOST", default='db'),
+'PORT': config("PGDB_PORT", cast=int, default=5432),}
+}
+
+
+TIME ZONE = config("TIME ZONE", default="UTC")
+
+
+STATIC_URL = 'static/'
+MEDIA URL = 'media/'
+
+STATIC ROOT = BASE DIR / 'staticfiles'
+STATIC ROOT = BASE DIR / 'media'
+
+
+STATICFILES DIRS = [ BASE DIR / 'static' ]
+
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = config("EMAIL_HOST", default="smtp4dev") 
+EMAIL USE_TLS = config("EMAIL USE_TLS", cast=bool,default=False) 
+EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool, default=False) 
+EMAIL_PORT = config("EMAIL_PORT", cast=int, default=25) 
+EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="") 
+EMAIL_HOST_PASSWORD = config("EMAIL HOST_PASSWORD", default="")
+
+
+SHOW DEBUGGER TOOLBAR = config("SHOW_DEBUGGER TOOLBAR",cast=bool, default=True)
+if SHOW_DEBUGGER TOOLBAR:
+
+INSTALLED_APPS += [
+
+"debug toolbar",
+
+1
+
+MIDDLEWARE +=
+
+"debug toolbar.middleware.DebugToolbarMiddleware",
+
+import socket # only if you haven't already imported this hostname,, ips = socket.gethostbyname_ex(socket.gethostname()) INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
+
+
+
+......................................
+for files static,midea,..
+.gitkeep
+.....................
+......urls.py......
+from django.conf import settings
+
+if settings. SHOW_DEBUGGER_TOOLBAR:
+urlpatterns += [path(' debug/', include('debug_toolbar.urls')),]
+..........................
+pip install django-debug-toolbar
+pip install python-decouple
+
+
+
+
+
+
 <!-- مثال: Tawk.to -->
 <script type="text/javascript">
 var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();

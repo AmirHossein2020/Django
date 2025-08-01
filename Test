@@ -1,3 +1,24 @@
+create_flight:
+A portion of the flight hours restrictions are recorded here for each crew member and sent to View(). It is reviewed here, and flight information is not recorded here until the crew member section is approved.
+
+get_crews:
+Flight restrictions are being reviewed in this section.
+Information collection for each crew role is taken here.
+
+
+
+update_crews:
+Here, the hours of restrictions are checked and error management is performed, and if flight hours are calculated.
+
+
+
+crew_flight_summary:
+The section displays the history of each crew based on the user's selection in the selected time period of flight hours and calculates the remaining hours.
+
+
+
+
+
 .....setting.py.....
 SECRET_KEY = config("SECRET_KEY", default='django-insecure-v!!p07q542o11a=jzhp^c)bq%+=^odvfqbem%22mupm!-npqgr')
 DEBUG = config("DEBUG", cast=bool, default=True)

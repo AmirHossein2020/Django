@@ -16,6 +16,9 @@ crew_flight_summary:
 The section displays the history of each crew based on the user's selection in the selected time period of flight hours and calculates the remaining hours.
 
 
+crew_summary_page:
+To connect the history view to the template(), do this:
+
 
 
 
